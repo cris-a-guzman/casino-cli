@@ -1,0 +1,30 @@
+    while True:
+        eleccion = input(' Presiona enter para pedir carta o "s" para quedarte: ').lower().strip
+        if eleccion =="s":
+            print(f"Tu puntaje actual es de: {puntaje}")
+        else:
+            carta += tirar_carta(mazo)
+            jugador.agregar_carta(carta)
+            jugador.sumar_puntaje(carta.valor)
+        
+            print(f"Tu puntaje actual es de: {puntaje}")
+            if puntaje >= 22:
+                print('Te pasaste del 21, perdiste...')
+                break
+
+
+        if puntaje_dealer <=15:
+            puntaje_dealer += tirar_carta(mazo)
+        print(f"El puntaje actual del dealer es de: {puntaje_dealer}")
+        if puntaje_dealer >=22:
+            print('El dealer se paso de 21, perdio')
+            break
+
+
+
+
+
+    while puntaje <= 21:
+        input('preciona enter para pedir carta: ')
+
+        turno +=1

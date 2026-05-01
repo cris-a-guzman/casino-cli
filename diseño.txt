@@ -1,0 +1,41 @@
+1) En este proyecto hay 5 juegos
+    - Ruleta
+    - Slots
+    - High or Low
+    - Blackjack
+    - Dados
+2) Tenemos un archivo principal desde el cual ejecutamos los juegos a eleccion
+3) Tenemos una carpeta para guardar mensajes recurrentes, validaciones etc
+
+4) 
+- Inicia el programa
+- Se crea el jugador
+- Se muestra el menú
+- El usuario elige un juego
+- Se ejecuta el juego
+- Se actualiza el saldo
+- Se vuelve al menú o se sale
+
+5) Sistema de jugador:
+
+Saldo del jugador
+Apuestas
+Ganancias / pérdidas
+
+casino/
+│
+├── main.py
+├── juegos/
+│   ├── ruleta.py
+│   ├── slots.py
+│   ├── high_low.py
+│   ├── blackjack.py
+│   └── dados.py
+│
+├── utils/
+│   ├── mensajes.py
+│   ├── validaciones.py
+│   └── helpers.py
+│
+└── data/
+    └── config.py

@@ -1,0 +1,39 @@
+blackjack/
+│
+├── main.py
+│
+├── models/
+│   ├── __init__.py
+│   ├── carta.py
+│   ├── baraja.py
+│   ├── persona.py
+│   ├── jugador.py
+│   ├── dealer.py
+│   └── blackjack.py
+Blackjack
+ ├── controla Baraja
+ ├── controla Jugador
+ ├── controla Dealer
+ └── maneja reglas
+
+
+Jugador ── hereda ──► Persona
+Dealer ─── hereda ──► Persona
+
+Baraja ─── contiene ─► Carta
+Persona ── tiene ───► Carta
+
+
+iniciar_juego()
+│
+├── mezclar()
+├── pedir_apuesta()
+├── repartir_inicial()
+│
+├── turno_jugador()
+│
+├── turno_dealer()
+│
+├── verificar_ganador()
+│
+└── pagar_apuesta()
