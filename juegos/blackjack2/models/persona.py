@@ -1,16 +1,19 @@
+from models.mano import Mano
 class Persona:
     def __init__(self, nombre) -> None:
         self.nombre = nombre
-        self.cartas = []
+        self.mano = Mano()
 
     def tomar_carta(self,carta):
-        self.cartas.append(carta)
+        self.mano.tomar_carta(carta)
 
     def sumar_puntos(self):
-        pass
+        total = self.mano.sumar_puntos()
+        return total
 
     def mostrar_mano(self):
-        pass
+        mensaje = self.mano.mostrar()
+        return mensaje
 
     def tiene_blackjack(self):
         pass

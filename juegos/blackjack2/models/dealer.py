@@ -12,5 +12,7 @@ class Dealer(Persona):
         pass
 
     def mostrar_primera_oculta(self):
-        pass
+        puntos = self.mano.cartas[0].valor
+
+        return f"Puntaje Dealer: {puntos} | Cartas: '{self.mano.cartas[0]}, [?]'"
 

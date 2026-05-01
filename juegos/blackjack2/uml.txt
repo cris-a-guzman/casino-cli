@@ -3,26 +3,25 @@ blackjack/
 ├── main.py
 │
 ├── models/
-│   ├── __init__.py
-│   ├── carta.py
-│   ├── baraja.py
-│   ├── persona.py
-│   ├── jugador.py
-│   ├── dealer.py
-│   └── blackjack.py
+|       ├── carta.py
+|       ├── baraja.py
+|       ├── persona.py
+|       ├── jugador.py
+|       ├── dealer.py
+|       ├── blackjack.py
+|       ├── mano.py      ← NUEVO
+└──-------- apuesta.py   ← NUEVO
 Blackjack
  ├── controla Baraja
  ├── controla Jugador
  ├── controla Dealer
  └── maneja reglas
 
-
-Jugador ── hereda ──► Persona
-Dealer ─── hereda ──► Persona
-
+Persona ─── tiene ─► Mano ─── contiene ─► Carta
+Jugador ─── tiene ─► Apuesta
+Dealer ─── hereda ─► Persona
+Jugador ─── hereda ─► Persona
 Baraja ─── contiene ─► Carta
-Persona ── tiene ───► Carta
-
 
 iniciar_juego()
 │

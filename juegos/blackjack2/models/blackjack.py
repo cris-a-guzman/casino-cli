@@ -5,18 +5,26 @@ from models.baraja import Baraja
 class Blackjack:
 
     def __init__(self):
-
-        self.baraja = Baraja()
-        self.jugador = Jugador("player", 5000)
+        self.jugador = Jugador("player", 5000) #! Esto va en su propio input funcion
         self.dealer = Dealer()
 
     def pedir_apuesta(self):
-        apuesta = int(input('ingresa tu apuesta: '))
-        if self.jugador.saldo < apuesta:
-            print('No tenes esa cantidad para apostar.')
+        while True:
+            monto = input('Ingresa tu apuesta: ')
+            if monto.isdigit():
+                monto = int(monto)
+                if self.jugador.apostar(monto):
+                    break
+            else:
+                print('Lo ingresado no es un numero')
 
     def repartir_inicial(self):
-        pass
+        for _ in range(2):
+            self.jugador.tomar_carta(self.baraja.dar_carta())
+            self.dealer.tomar_carta(self.baraja.dar_carta())
+
+        print(self.jugador.mostrar_mano())
+        print(self.dealer.mostrar_primera_oculta())
 
     def turno_jugador(self):
         pass
@@ -34,6 +42,15 @@ class Blackjack:
         pass
 
     def iniciar_juego(self):
-        self.baraja.crear_mazo()
-        self.baraja.mezclar()
-        pass
+        self.baraja = Baraja()
+        self.pedir_apuesta()
+        self.repartir_inicial()
+        self.turno_jugador()
+        # self.dealer.mostrar_carta_oculta()
+        # self.turno_dealer()
+        # self.verificar_ganador()
+        # self.pagar_apuesta()
+
+
+
+        

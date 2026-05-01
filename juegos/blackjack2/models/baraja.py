@@ -5,6 +5,8 @@ class Baraja:
     def __init__(self) -> None:
         self.mazo = []
         self.palos = ["♠", "♥", "♦", "♣"]
+        self.crear_mazo()
+        self.mezclar()
 
     def crear_mazo(self):
         for i,palo in enumerate(self.palos):
@@ -19,6 +21,11 @@ class Baraja:
 
     def mezclar(self):
         random.shuffle(self.mazo)
+    
+    def dar_carta(self):
+        carta = random.choice(self.mazo)
+        self.mazo.remove(carta)
+        return carta
 
     def __str__(self) -> str:
         resultado = []
