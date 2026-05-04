@@ -1,0 +1,9 @@
+1 dar carta a jugador
+2 dar carta a dealer
+3 dar carta a jugador
+4 dar carta a dealer (oculta)
+5 OPCION: jugador tomar carta/plantarse
+6 VALIDACION: Puntos de jugador
+7 Dealer revela su carta
+8 VALIDACION: Puntos de Dealer (<16 toma carta si o si)
+9 Si puntos dealer > jugador. gana Dealer. viceversa

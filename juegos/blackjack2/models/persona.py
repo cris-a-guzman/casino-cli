@@ -15,8 +15,8 @@ class Persona:
         mensaje = self.mano.mostrar()
         return mensaje
 
-    def tiene_blackjack(self):
-        pass
-
     def se_paso(self):
-        pass
+        return self.sumar_puntos() > 21
+    
+    def tiene_blackjack(self):
+        return self.sumar_puntos() == 21 and len(self.mano.cartas)

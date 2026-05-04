@@ -1,6 +1,7 @@
 from models.jugador import Jugador
 from models.dealer import Dealer
 from models.baraja import Baraja
+import time
 
 class Blackjack:
 
@@ -27,13 +28,48 @@ class Blackjack:
         print(self.dealer.mostrar_primera_oculta())
 
     def turno_jugador(self):
-        pass
+        while True:
+            accion = input('Pedir carta S/N: ').lower().strip()
+            if accion == "s":
+                self.jugador.tomar_carta(self.baraja.dar_carta())
+
+                if self.jugador.se_paso():
+                    print(self.jugador.mostrar_mano())
+                    print('Te pasaste.')
+                    break
+                else:
+                    print(self.jugador.mostrar_mano())
+            else:
+                break
 
     def turno_dealer(self):
-        pass
+
+        print(self.dealer.mostrar_mano())
+        while self.dealer.debe_pedir():
+            time.sleep(1.5)
+            self.dealer.tomar_carta(self.baraja.dar_carta())
+            print(self.dealer.mostrar_mano())
+            if self.dealer.se_paso():
+                print('El dealer se paso de 21')
+
 
     def verificar_ganador(self):
-        pass
+        if self.jugador.tiene_blackjack():
+            return 'El jugador tuvo blackjack'
+        if self.dealer.tiene_blackjack():
+            return 'El Dealer tuvo blackjack'
+        jugador = self.jugador.sumar_puntos()
+        dealer = self.dealer.sumar_puntos()
+        if self.jugador.se_paso():
+            return 'Gana el Dealer'
+        if self.dealer.se_paso():
+            return 'Gana el Jugador'
+        if jugador > dealer:
+            return 'Gana el Jugador'
+        elif dealer > jugador:
+            return 'Gana el Dealer'
+        else:
+            return 'Empate'
 
     def pagar_apuesta(self):
         pass
@@ -46,9 +82,8 @@ class Blackjack:
         self.pedir_apuesta()
         self.repartir_inicial()
         self.turno_jugador()
-        # self.dealer.mostrar_carta_oculta()
-        # self.turno_dealer()
-        # self.verificar_ganador()
+        self.turno_dealer()
+        print(self.verificar_ganador())
         # self.pagar_apuesta()
 
 

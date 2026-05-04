@@ -9,10 +9,9 @@ class Dealer(Persona):
         pass
 
     def debe_pedir(self):
-        pass
+        return self.sumar_puntos() <  17
 
     def mostrar_primera_oculta(self):
         puntos = self.mano.cartas[0].valor
 
         return f"Puntaje Dealer: {puntos} | Cartas: '{self.mano.cartas[0]}, [?]'"
-
